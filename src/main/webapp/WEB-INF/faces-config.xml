@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE faces-config PUBLIC
+        "-//Sun Microsystems, Inc.//DTD JavaServer Faces Config 1.1 //EN"
+        "http://java.sun.com/dtd/web-facesconfig_1_1.dtd">
+<faces-config>
+    <validator>
+        <validator-id>validadorISBN</validator-id>
+        <validator-class>io.shifttodev.jsfhibernate.util.ValidadorISBN</validator-class>
+    </validator>
+    <managed-bean>
+        <managed-bean-name>livro</managed-bean-name>
+        <managed-bean-class>io.shifttodev.jsfhibernate.model.Livro</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <navigation-rule>
+        <from-view-id>/index.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/welcome.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>fail</from-outcome>
+            <to-view-id>/index.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <managed-bean>
+        <managed-bean-name>livros</managed-bean-name>
+        <managed-bean-class>io.shifttodev.jsfhibernate.controller.LivroController</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+
+    <!-- Editar -->
+    <navigation-rule>
+        <display-name>listar</display-name>
+        <from-view-id>/listar.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>editar</from-outcome>
+            <to-view-id>/atualizar.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <!-- Cadastrar -->
+    <navigation-rule>
+        <display-name>cadastrar</display-name>
+        <from-view-id>/form.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>inserido</from-outcome>
+            <to-view-id>/listar.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <!-- Form -->
+    <navigation-rule>
+        <display-name>menu</display-name>
+        <from-view-id>/menu.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>novo</from-outcome>
+            <to-view-id>/form.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <!-- Sucesso na atualização -->
+    <navigation-rule>
+        <display-name>atualizar</display-name>
+        <from-view-id>/atualizar.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>atualizado</from-outcome>
+            <to-view-id>/listar.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <!-- Sucesso na exclusão -->
+    <navigation-rule>
+        <display-name>listar</display-name>
+        <from-view-id>/listar.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>deletado</from-outcome>
+            <to-view-id>/listar.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <!-- Listar -->
+    <navigation-rule>
+        <display-name>listar</display-name>
+        <navigation-case>
+            <from-outcome>listar</from-outcome>
+            <to-view-id>/listar.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <!-- Adicionar -->
+    <navigation-rule>
+        <display-name>listar</display-name>
+        <from-view-id>/listar.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>novo</from-outcome>
+            <to-view-id>/form.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+</faces-config>

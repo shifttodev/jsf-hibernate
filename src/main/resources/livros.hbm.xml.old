@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="io.shifttodev.jsfhibernate.model.Livro" table="livro">
+        <id name="id" column="id" type="integer">
+            <generator class="increment" />
+        </id>
+        <property name="isbn" column="isbn" type="string" unique="true"/>
+        <property name="titulo" column="titulo" type="string" />
+        <property name="autor" column="autor" type="string" />
+        <property name="ano" column="ano" type="integer" />
+    </class>
+</hibernate-mapping>
